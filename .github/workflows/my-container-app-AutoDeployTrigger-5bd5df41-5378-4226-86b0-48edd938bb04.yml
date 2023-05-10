@@ -44,3 +44,4 @@ jobs:
         with:
           inlineScript: |
             az version
+            az containerapp update -n my-container-app -g rg_cli --image docker.io/tinumistry/empapi:githubactiondemo1.2
