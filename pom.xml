@@ -70,7 +70,7 @@
 						<image>docker.io/tinumistry/empapi:githubactiondemo1.0</image>
 						<auth>
 							<username>tinumistry</username>
-							<password>${DOCKERHUB_PASSWORD}</password>
+							<password>Welcometomsci@123</password>
 						</auth>
 					</to>
 				</configuration>
