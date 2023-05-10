@@ -2,16 +2,9 @@ name: Trigger auto deployment for my-container-app
 
 # When this action will be executed
 on:
-  # Automatically trigger it when detected changes in repo
-  push:
-    branches: 
-      [ main ]
-    paths:
-    - '**'
-    - '.github/workflows/my-container-app-AutoDeployTrigger-5bd5df41-5378-4226-86b0-48edd938bb04.yml'
-
-  # Allow mannually trigger 
-  workflow_dispatch:      
+  release:
+    types: [created]
+  workflow_dispatch:  
 
 jobs:
   build:
@@ -51,5 +44,4 @@ jobs:
         with:
           inlineScript: |
             az config set extension.use_dynamic_install=yes_without_prompt
-            az containerapp registry set -n my-container-app -g rg_cli --server docker.io/tinumistry --username  ${{ secrets.MYCONTAINERAPP_REGISTRY_USERNAME }} --password ${{ secrets.MYCONTAINERAPP_REGISTRY_PASSWORD }}
             az containerapp update -n my-container-app -g rg_cli --image docker.io/tinumistry/empapi:githubactiondemo1.2
