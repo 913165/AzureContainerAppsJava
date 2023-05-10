@@ -27,4 +27,7 @@ jobs:
         settings-path: ${{ github.workspace }} # location for the settings.xml file
 
     - name: Build with Maven
+      env:
+        USERNAME: ${{ secrets.MY_SECRET_USERNAME }}
+        PASSWORD: ${{ secrets.MY_SECRET_PASSWORD }} 
       run: mvn compile jib:build --file pom.xml
